@@ -5,10 +5,10 @@ instances=("mongodb","redis","mysql","rabbitmq","catalouge","cart","shipping","p
 
 for name in ${instances[@]}; do
    if [ $name == "shipping" ] || [ $name == "mysql" ]
-     then
-        instance_type = "t3.medium"
-     else
-        instance_type = "t3.micro"
+   then
+       instance_type= "t3.medium"
+   else
+       instance_type= "t3.micro"
    fi
    echo "Creating instance for: $name with instance type: $instance_type"
 done
