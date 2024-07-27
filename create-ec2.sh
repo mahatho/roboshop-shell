@@ -2,7 +2,7 @@
 
 instances=("mongodb" "redis" "mysql" "rabbitmq" "catalogue" "user" "cart" "shipping" "payment" "web")
 domain_name="daws78s.online"
-hosted_zone_id="Z08884492QFPW45HM4UQO"
+hosted_zone_id="Z02431953HMSA3YPQ9H7S"
 
 for name in ${instances[@]}; do
     if [ $name == "shipping" ] || [ $name == "mysql" ]
@@ -12,7 +12,7 @@ for name in ${instances[@]}; do
         instance_type="t3.micro"
     fi
     echo "Creating instance for: $name with instance type: $instance_type"
-    instance_id=$(aws ec2 run-instances --image-id ami-041e2ea9402c46c32 --instance-type $instance_type --security-group-ids sg-0fea5e49e962e81c9 --subnet-id subnet-09863c54177764565 --query 'Instances[0].InstanceId' --output text)
+    instance_id=$(aws ec2 run-instances --image-id ami-041e2ea9402c46c32- --instance-type $instance_type --security-group-ids sg-0b7ae9cc652c13cff --subnet-id subnet-06f4a00901c35a94d --query 'Instances[0].InstanceId' --output text)
     echo "Instance created for: $name"
 
     aws ec2 create-tags --resources $instance_id --tags Key=Name,Value=$name
