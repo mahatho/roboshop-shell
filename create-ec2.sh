@@ -10,3 +10,4 @@ for name in ${instances[@]}; do
         instance_type="t3.micro"
     fi
     echo "Creating instance for: $name with instance type: $instance_type"
+done
